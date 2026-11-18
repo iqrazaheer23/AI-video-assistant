@@ -19,7 +19,13 @@ from core.transcriber import transcribe_all
 from utils.audio_processor import process_input
 
 app = FastAPI(title="AI Video Assistant API")
-app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173"], allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 sessions: dict[str, object] = {}
 
 
